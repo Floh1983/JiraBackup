@@ -58,58 +58,21 @@ public class Backing {
 
 }
 
+OkHttpClient client = new OkHttpClient();
 
+Request request = new Request.Builder()
+        .url("https://jira.comline.de/sr/jira.issueviews:searchrequest-fullcontent/temp/SearchRequest.html?jqlQuery=key+%3D+AEGHAW-2381")
+        .get()
+        .addHeader("Authorization", "Basic c2NobG9zc2VyOk1lcGhpc3RvMX5qYW4=")
+        .addHeader("User-Agent", "PostmanRuntime/7.13.0")
+        .addHeader("Accept", "*/*")
+        .addHeader("Cache-Control", "no-cache")
+        .addHeader("Postman-Token", "12ea7ce3-0c65-4de0-b3fa-15117a9ed3d2,32c799e6-68a5-4171-a644-ff65e5d71bc7")
+        .addHeader("Host", "jira.comline.de")
+        .addHeader("cookie", "JSESSIONID=11C45299F2967C3BDF1460C75DCD9147; atlassian.xsrf.token=B2LQ-2W30-5PCA-3L89|d890cd29de469b59491c199ec759157f37e6aa2c|lin")
+        .addHeader("accept-encoding", "gzip, deflate")
+        .addHeader("Connection", "keep-alive")
+        .addHeader("cache-control", "no-cache")
+        .build();
 
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.net.URL;
-//
-//
-//try (buffered stream?){
-//start stream
-//wie denn nun?...
-//} catch (IOException e){
-//
-//        }
-//InputStream in = new URL(FILE_URL).openStream();
-//Files.copy(in, Paths.get(FILE_NAME), StandardCopyOption.REPLACE_EXISTING);
-
-
-//import lombok.AllArgsConstructor;
-//import lombok.Getter;
-//import lombok.Setter;
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.stereotype.Component;
-//
-//
-//@Component
-//@Getter
-//@Setter
-//@AllArgsConstructor
-//
-//public class Backing {
-//    @Value("${properties.url}")
-//    public static String url;
-//
-//    @Value("${properties.ticket}")
-//    public static String ticket;
-//
-//    @Value("${properties.start}")
-//    public static int start;
-//
-//    @Value("${properties.end}")
-//    public static int end;
-//
-//
-//    public static void backing(){
-//        System.out.println("Hello");
-//        System.out.println(url + ticket + start + end);
-//
-//    }
-//
-//    public static void main(String[] args) {
-//        System.out.println("Hello");
-//        System.out.println(url + ticket + start + end);
-//        backing();
-//    }
-//}
+Response response = client.newCall(request).execute();
