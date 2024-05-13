@@ -53,7 +53,6 @@ public class Backing {
 
         download("https://jira.comline.de/sr/jira.issueviews:searchrequest-fullcontent/temp/SearchRequest.html?jqlQuery=key+%3D+AEGHAW-2381");
     }
-
     }
 
 }
