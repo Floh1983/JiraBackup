@@ -19,7 +19,8 @@ public class JiraBackupApplication{
 
     public static void main(String[] args) {
         SpringApplication.run(JiraBackupApplication.class, args);
-        Backing backing = new Backing();
+        //Backing backing = new Backing();
+        Download download = new Download();
     }
 
 }
